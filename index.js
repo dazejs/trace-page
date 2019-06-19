@@ -15,13 +15,13 @@ function cutFileName(name) {
 }
 
 class TracePage {
-  render(err, ctx, options = {}) {
+  render(err, request, options = {}) {
     const stacks = this.parse(err)
     return env.render('index.html', {
       stacks: stacks.filter(s => !!s),
       name: err.name,
       message: err.message,
-      request: ctx.request,
+      request: request,
       pid: process.pid,
       ppid: process.ppid,
       platform: process.platform,
@@ -54,6 +54,6 @@ class TracePage {
   }
 }
 
-module.exports = function (err, ctx, options) {
-  return (new TracePage()).render(err, ctx, options)
+module.exports = function (err, request, options) {
+  return (new TracePage()).render(err, request, options)
 }
