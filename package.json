@@ -1,7 +1,7 @@
 {
   "name": "@dazejs/trace-page",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.2.0",
+  "description": "Daze.js Error Trace Page",
   "main": "index.js",
   "scripts": {
     "dev": "webpack --watch --mode=development",
@@ -18,11 +18,11 @@
     "babel-loader": "^8.0.0",
     "css-loader": "^1.0.0",
     "exports-loader": "^0.7.0",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-inline-source-plugin": "1.0.0-beta.2",
-    "html-webpack-plugin": "1.0.0-beta.4",
+    "html-webpack-plugin": "^4.0.0-beta.8",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
+    "mini-css-extract-plugin": "^0.8.0",
     "postcss-loader": "^3.0.0",
     "script-loader": "^0.7.2",
     "webpack": "^4.17.1",

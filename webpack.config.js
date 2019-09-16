@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin')
-const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path')
 const webpack = require('webpack')
 const autoprefixer = require('autoprefixer')
@@ -22,8 +22,14 @@ module.exports = {
       },
       {
         test: /\.less$/,                
-        loader: ExtractTextPlugin.extract([ 
-          'css-loader',                    
+        loader: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: process.env.NODE_ENV === 'development',
+            },
+          },
+          'css-loader',
           {
             loader: 'postcss-loader',
             options: {
@@ -37,7 +43,7 @@ module.exports = {
             },
           },
           'less-loader'
-        ])
+        ]
       },
       {
       test: require.resolve('zepto'),
@@ -50,7 +56,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('style.css'),
+    new MiniCssExtractPlugin('style.css'),
     new HtmlWebpackPlugin({
       template: './template/index.html', 
       filename: './view/index.html', 

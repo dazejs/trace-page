@@ -28,6 +28,7 @@ class TracePage {
       version: process.version,
       uptime: process.uptime(),
       cutFileName,
+      logo: fs.readFileSync(path.resolve(__dirname, './template/images/logo.svg')),
       options,
     })
   }
