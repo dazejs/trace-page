@@ -21,7 +21,3 @@ async function (ctx next) {
   }
 }
 ```
-### options
-- `options.logo`: `render` String in html, ex: `<span>Daze.js</span>`
-- `more...`
-
